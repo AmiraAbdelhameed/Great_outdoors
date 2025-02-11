@@ -10,22 +10,22 @@ const ServiceDetails = () => {
 
 
     const { service } = useParams();
-    const place = useSelector((state) => state.data.items.filter((p) => p.service == service));
-    const { items, loading, error } = useSelector((state) => state.data);
+    const place = useSelector((state) => state.data.items.filter((p) => p.service === service));
+    const {loading, error } = useSelector((state) => state.data);
 
 
-    if (!place) return <p>Loading ...</p>;
+    if (!place) return <p className="text-white text-3xl text-center" >Loading ...</p>;
 
     return (
         <>
-            {loading && <p>Loading...</p>}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {loading && <p className="text-white text-3xl">Loading...</p>}
+            {error && <p className="text-red-900">{error}</p>}
             <div className="container m-auto  flex gap-8 justify-center items-center">
                 {place.map((item) => (
-                    <div className="portofolio_card w-[80%] sm:w-[45%] md:w-[30%] border-2 bg-white rounded-2xl truncate hover:scale-105  transition duration-5 ease-in">
-                        <Link to={`/Portofolio/${item.id}`} key={item.id}>
+                    <div key={item.id} className="portofolio_card w-[80%] sm:w-[45%] md:w-[30%] border-2 bg-white rounded-2xl truncate hover:scale-105  transition duration-5 ease-in">
+                        <Link to={`/Portofolio/${item.id}`} >
                             <figure className="truncate h-[150px] flex justify-center items-center">
-                                <img src={item.src} alt="" srcset="" className="h-[150px] w-[100%]" />
+                                <img src={item.src} alt=""  className="h-[150px] w-[100%]" />
                             </figure>
                             <h3 className=" p-4 pb-0 text-left font-semibold capitalize">{item.title}</h3>
                         </Link>

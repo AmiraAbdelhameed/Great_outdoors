@@ -23,8 +23,7 @@ const Home = () => {
    
     return (
         <>
-            {loading && <p>Loading...</p>}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            
             <Header />
             {/* Explore\portofolio section  */}
             <section className="explore pb-16 pt-4 bg-black text-white  lg:pt-4">
@@ -39,10 +38,12 @@ const Home = () => {
                 </p>
                 </div>
                 <div className="cards pt-16 flex items-center justify-center flex-wrap gap-8 md:flex-nowrap  ">
+                        {loading && <p className="text-white text-3xl">Loading...</p>}
+                        {error && <p className="text-red-900">{error}</p>}
                         {items.slice(0, 3).map((item , index) => (
-                            <>
+                            <div key={index}>
                                 <Link to={`/Portofolio/${item.id}`} ><Cards card_img={item.src} title={item.title} description={'United States'} key={index} /></Link>
-                            </>
+                            </div>
 
                         ))}
                 </div>

@@ -1,7 +1,5 @@
 import React from "react";
-
-import Header from '../../components/Header/Header'
-import { Outlet, Form, redirect } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
@@ -15,15 +13,15 @@ const Contact = () => {
                     <div className=" flex flex-wrap flex-col gap-2 justify-around items-center pt-8">
 
                         <div className="contact_info w-[35%] flex justify-center items-center gap-4 text-orange-700 font-bold pb-16">
-                            <div className="card text-center bg-white p-8 rounded-[50%] border-2 border-orange-700 hover:bg-orange-700 hover:text-white hover:scale-90  ">
+                            <div className="card text-center bg-white p-8 rounded-[50%] border-2 border-orange-700 hover:bg-orange-700 hover:text-white hover:scale-90  ease-in-out duration-300 ">
                                 <span><FontAwesomeIcon icon={faPhone} /></span>
                                 
                             </div>
-                            <div className="card text-center bg-white p-8 rounded-[50%] border-2 border-orange-700 hover:bg-orange-700 hover:text-white hover:scale-90  ">
+                            <div className="card text-center bg-white p-8 rounded-[50%] border-2 border-orange-700 hover:bg-orange-700 hover:text-white hover:scale-90  ease-in-out duration-300 ">
                                 <span><FontAwesomeIcon icon={faEnvelope} /></span>
                                 
                             </div>
-                            <div className="card text-center bg-white p-8 rounded-[50%] border-2 border-orange-700 hover:bg-orange-700 hover:text-white hover:scale-90 ">
+                            <div className="card text-center bg-white p-8 rounded-[50%] border-2 border-orange-700 hover:bg-orange-700 hover:text-white hover:scale-90 ease-in-out duration-300">
                                 <span><FontAwesomeIcon icon={faFacebookF} /></span>
                                
                             </div>
@@ -43,7 +41,7 @@ const Contact = () => {
                                 <label htmlFor="message" className="col-span-2">Message</label>
                                     <textarea name="message" id="message" className="border-2 p-2 rounded-2xl w-[100%]" rows='5' cols="20" ></textarea>
                             </div>
-                                <button className="col-span-2 p-2 bg-orange-700 text-white rounded-xl">Send Message</button>
+                                <button onClick={() => { alert("Thank you for your message ") }} className="col-span-2 p-2 bg-orange-700 text-white rounded-xl">Send Message</button>
                             </Form>
                         </div>
                     </div>
@@ -73,5 +71,8 @@ export const contactAction = async ({ request }) => {
     console.log(submission)
     console.log(msg)
     console.log(msgJson)
-    return redirect('/')
+    return (
+        
+        redirect('/')
+    )
 }
