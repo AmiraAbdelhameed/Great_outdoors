@@ -17,13 +17,13 @@ const PortofolioLoad = () => {
 
 
     return (
-        <div style={{ padding: "20px", textAlign: "center" }}>
+        <div >
            
+            <h2 className="text-white text-center text-3xl font-bold pb-4">Portofolio</h2>
 
             {loading && <p className="text-white text-3xl">Loading...</p>}
             {error && <p className="text-red-900">{error}</p>}
 
-            <h2 className="text-white text-center text-3xl font-bold pb-4">Portofolio</h2>
             <div className="Portofolio_data  sm:container   sm:mx-auto flex flex-wrap gap-4 justify-center items-center ">
                 {items.slice().map((item , index) => (
 
