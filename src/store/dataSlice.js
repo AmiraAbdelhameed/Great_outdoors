@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// API Fetch Action
+// API Fetch 
 export const fetchData = createAsyncThunk("data/fetchData", async () => {
     const response = await fetch("https://amiraabdelhameed.github.io/Data/data/db.json");
-    // const response = await fetch("http://localhost:5000/Portofolio");
     return response.json(); 
 });
 
@@ -25,7 +24,7 @@ const dataSlice = createSlice({
                 state.loading = false;
                 state.items = action.payload; 
             })
-            .addCase(fetchData.rejected, (state, action) => {
+            .addCase(fetchData.rejected, (state) => {
                 state.loading = false;
                 state.error = "Failed to fetch data!";
             });

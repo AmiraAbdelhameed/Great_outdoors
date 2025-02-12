@@ -20,7 +20,7 @@ const ServiceDetails = () => {
         <>
             {loading && <p className="text-white text-3xl">Loading...</p>}
             {error && <p className="text-red-900">{error}</p>}
-            <div className="container m-auto  flex gap-8 justify-center items-center">
+            <div className="container m-auto flex-col md:flex-row flex gap-8 justify-center items-center">
                 {place.map((item) => (
                     <div key={item.id} className="portofolio_card w-[80%] sm:w-[45%] md:w-[30%] border-2 bg-white rounded-2xl truncate hover:scale-105  transition duration-5 ease-in">
                         <Link to={`/Portofolio/${item.id}`} >

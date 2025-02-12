@@ -24,7 +24,7 @@ const PortofolioLoad = () => {
             {error && <p className="text-red-900">{error}</p>}
 
             <h2 className="text-white text-center text-3xl font-bold pb-4">Portofolio</h2>
-            <div className="Portofolio_data px-8 sm:container py-3  sm:mx-auto flex flex-wrap gap-4 justify-center items-center ">
+            <div className="Portofolio_data  sm:container   sm:mx-auto flex flex-wrap gap-4 justify-center items-center ">
                 {items.slice().map((item , index) => (
 
 
@@ -37,7 +37,7 @@ const PortofolioLoad = () => {
                         </Link>
                         <div className="content p-4 text-left " key={index} >
                             <p>{item.description}</p>
-                            <p className="text-gray-600" >{item.location}</p>
+                            <p className="text-gray-600 w-[100%]" >{item.location}</p>
                             <Link to={`/Portofolio/${item.id}`} className="w-[100%] text-center text-white block p-2 mt-4 bg-orange-700 rounded-2xl hover:scale-110  transition duration-5 ease-in" >Book Now</Link>
                         </div>
                     </div>
