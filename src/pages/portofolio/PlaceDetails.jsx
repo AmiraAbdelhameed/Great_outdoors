@@ -1,8 +1,9 @@
 import React,{ useEffect } from "react";
 import { Link, Navigate, useLoaderData, useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { fetchData } from "../../store/dataSlice";
 
 
 
@@ -11,10 +12,13 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const PlaceDetails =()=>{
 
-
+    const dispatch = useDispatch();
     const { id } = useParams();
     const { items, loading, error } = useSelector((state) => state.data);
     const place = useSelector((state) => state.data.items.find((p) => p.id.toString() === id ));
+  useEffect(() => {
+        dispatch(fetchData()); 
+    }, [dispatch]);
 
 
     if (!place) return <p className="text-white text-3xl text-center"  >Loading...</p>;
